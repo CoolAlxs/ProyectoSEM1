@@ -1,0 +1,45 @@
+
+ion-button {
+    --background: #e24ae2; // Color primario de los botones
+    --color: #ffffff; // Color del texto en los botones
+    --border-radius: 20px; // Radio de borde de los botones
+    margin: 2%;
+    display: flex;
+}
+
+
+ion-card {
+    margin: 4%;
+
+    ion-card-header {
+        background-color: #4a90e2;
+        color: #ffffff;
+    }
+
+    ion-card-content {
+        padding: 2%;
+    }
+}
+.card-img{
+    width: 100%; 
+    max-height: 70vh;
+}
+
+ion-input,
+ion-select {
+    border: 4vw solid #4a90e2; // Borde de campos de entrada y selectores
+    border-radius: 2%; // Radio de borde de campos de entrada y selectores
+    margin-bottom: 2%;
+}
+
+
+ion-title {
+    font-size: 4vw; // Tamaño del título
+    font-weight: bold;
+}
+
+
+ion-footer {
+    background-color: #4a90e2; // Color primario del pie de página
+    color: #ffffff; // Color del texto en el pie de página
+}

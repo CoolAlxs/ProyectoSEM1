@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import Swiper from 'swiper';
+import { NavController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +8,10 @@ import Swiper from 'swiper';
 })
 export class HomePage {
 
-  constructor() {}
-  
-}
+  constructor(private navCtrl: NavController) {}
+
+  irAIntro() {
+    this.navCtrl.navigateForward('/intro');
+  }
+
+} 
