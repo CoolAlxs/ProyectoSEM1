@@ -1,62 +1,25 @@
-<!-- <ion-header>
-  <ion-toolbar color="primary">
+<ion-header>
+  <ion-toolbar>
     <ion-title>Venta de Tickets</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
   </ion-toolbar>
-</ion-header> -->
+</ion-header>
 
 <ion-content>
   <swiper-container loop="true">
-    <swiper-slide>
-      <ion-card>
-
-        <ion-card-header>
-          <ion-title>Concierto en Vivo</ion-title>
-        </ion-card-header><img src="assets/Imgs/carro1.jpg"  alt="Imagen 1">
-        <ion-card-content>
-          <p>Fecha: 15 de febrero, 2024</p>
-          <p>Lugar: Teatro Principal</p>
-          <p>Precio: $20.00</p>
-        </ion-card-content>
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
+    <swiper-slide *ngFor="let slide of event_list">
       <ion-card>
         <ion-card-header>
-          <ion-title>Concierto en Vivo</ion-title>
-        </ion-card-header>
-        <img src="assets/Imgs/carro2.jpg" alt="Imagen 1">
+          <ion-title>{{slide.name}}</ion-title>
+        </ion-card-header><img src="{{slide.image}}">
         <ion-card-content>
-          <p>Fecha: 15 de febrero, 2024</p>
-          <p>Lugar: Teatro Principal</p>
-          <p>Precio: $20.00</p>
-        </ion-card-content>
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-title>Concierto en Vivo</ion-title>
-        </ion-card-header>
-        <img src="assets/Imgs/carro3.jpg" alt="Imagen 1">
-        <ion-card-content>
-          <p>Fecha: 15 de febrero, 2024</p>
-          <p>Lugar: Teatro Principal</p>
-          <p>Precio: $20.00</p>
-        </ion-card-content>
-      </ion-card>
-    </swiper-slide>
-    <swiper-slide>
-
-      <ion-card>
-        <ion-card-header>
-          <ion-title>Concierto en Vivo</ion-title>
-        </ion-card-header>
-        <img src="assets/Imgs/carro4.jpg" class="card-img" alt="Imagen 1">
-        <ion-card-content>
-          <p>Fecha: 15 de febrero, 2024</p>
-          <p>Lugar: Teatro Principal</p>
-          <p>Precio: $20.00</p>
+          <p><strong>Fecha: </strong>{{slide.event_date}}</p>
+          <p><strong>Lugar: </strong>{{slide.location}}</p>
+          <p><strong>Ciudad: </strong>{{slide.city}}</p>
+          <p><strong>Dirección: </strong>{{slide.address}}</p>                  
+          <p>{{slide.description}}</p>
         </ion-card-content>
       </ion-card>
     </swiper-slide>
@@ -66,7 +29,7 @@
 </ion-content>
 
 <ion-footer>
-  <ion-toolbar color="primary">
+  <ion-toolbar>
     <ion-title>© 2024 Venta de Tickets</ion-title>
   </ion-toolbar>
 </ion-footer>

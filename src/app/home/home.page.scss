@@ -16,18 +16,52 @@
   object-fit: cover;
 }
 
-.slide-text {
-  position: absolute;
-  bottom: 2%;
-  left: 2%;
-  color: #05e3d4;
-  font-family: "Roboto", sans-serif;
-  max-width: 25%;
-  text-align: left;
-  font-size: 2vw;
+
+ion-toolbar{
+  --background: rgb(17, 0, 158)
 }
 
-.swiper-button-next::after,
-.swiper-button-prev::after {
-  color: #08ffef;
+ion-button {
+  --background: rgb(17, 0, 158); // Color primario de los botones
+  --color: #ffffff; // Color del texto en los botones
+  --border-radius: 20px; // Radio de borde de los botones
+  margin: 2%;
+  display: flex;
+}
+
+
+ion-card {
+  margin: 4%;
+
+  ion-card-header {
+      background-color: rgb(17, 0, 158);
+      color: #ffffff;
+  }
+
+  ion-card-content {
+      padding: 2%;
+  }
+}
+.card-img{
+  width: 100%; 
+  max-height: 70vh;
+}
+
+ion-input,
+ion-select {
+  border: 4vw solid rgb(17, 0, 158); // Borde de campos de entrada y selectores
+  border-radius: 2%; // Radio de borde de campos de entrada y selectores
+  margin-bottom: 2%;
+}
+
+
+ion-title {
+  font-size: 3.5vw; // Tamaño del título
+  font-weight: bold;
+}
+
+
+ion-footer {
+  background-color: rgb(17, 0, 158); // Color primario del pie de página
+  color: #ffffff; // Color del texto en el pie de página
 }

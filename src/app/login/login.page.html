@@ -1,0 +1,66 @@
+
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Login</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure>
+    <ion-avatar>
+      <img src="assets/Imgs/userIcon.png" alt="">
+    </ion-avatar>
+  </figure>
+  <form [formGroup]="loginForm" (ngSubmit)="loginUser(loginForm.value)">
+
+    <ion-item>
+      <ion-input type="email" label="Email" label-placement="floating" fill="solid" placeholder="Ingresa tu email"
+        formControlName="email">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.email">
+          <div *ngIf="
+            (loginForm.get('email')?.hasError(validation.type) &&
+            loginForm.get('email')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" label="Password" label-placement="floating" fill="solid"
+        placeholder="Ingresa tu contraseña" formControlName="password">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.password">
+          <div *ngIf="
+            (loginForm.get('password')?.hasError(validation.type) &&
+            loginForm.get('password')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+
+    <ion-button type="submit" [disabled]="!loginForm.valid">LogIn</ion-button>
+
+    <div class="validation-message">
+      {{loginMessage}}
+    </div>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>© 2024 Venta de Tickets</ion-title>
+  </ion-toolbar>
+</ion-footer>

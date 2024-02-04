@@ -1,0 +1,121 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Register</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <figure>
+    <ion-avatar>
+      <img src="assets/Imgs/registerIcon.png" alt="">
+    </ion-avatar>
+  </figure>
+  <form [formGroup]="registerForm" (ngSubmit)="register(registerForm.value)">
+
+    <ion-item>
+      <ion-input type="email" label="Email" label-placement="floating" fill="solid" placeholder="Ingresa tu email"
+        formControlName="email">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.email">
+          <div *ngIf="
+            (registerForm.get('email')?.hasError(validation.type) &&
+            registerForm.get('email')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="name" label="Name" label-placement="floating" fill="solid" placeholder="Ingresa tu nombre"
+        formControlName="name">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.password">
+          <div *ngIf="
+            (registerForm.get('name')?.hasError(validation.type) &&
+            registerForm.get('name')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="lastName" label="Last Name" label-placement="floating" fill="solid"
+        placeholder="Ingresa tu apellido" formControlName="lastName">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.password">
+          <div *ngIf="
+            (registerForm.get('lastName')?.hasError(validation.type) &&
+            registerForm.get('lastName')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" label="Password" label-placement="floating" fill="solid"
+        placeholder="Ingresa tu contraseña" formControlName="password">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container class="validation-container" *ngFor="let validation of validation_Message.password">
+          <div class="validation-container" *ngIf="
+            (registerForm.get('password')?.hasError(validation.type) &&
+            registerForm.get('password')?.dirty)
+            ">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+      </div>
+
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="password" label="Confirm Password" label-placement="floating" fill="solid"
+        placeholder="Confirma tu contraseña" formControlName="confirmPassword">
+      </ion-input>
+
+      <div class="validation-message">
+        <ng-container *ngFor="let validation of validation_Message.confirmPassword">
+          <div
+            *ngIf="registerForm.get('confirmPassword')?.hasError(validation.type) && registerForm.get('confirmPassword')?.dirty">
+            <ion-icon name="warning-outline" class="icon-warning"></ion-icon>
+            {{ validation.message }}
+          </div>
+        </ng-container>
+
+      </div>
+    </ion-item>
+
+    <div class="button-container">
+      <ion-button type="submit" [disabled]="!registerForm.valid">Register</ion-button>
+      <ion-button (click)="irLogin()">Ir Al Login</ion-button>
+      <div class="validation-message">
+        {{registerMessage}}
+      </div>
+    </div>
+  </form>
+</ion-content>
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>© 2024 Venta de Tickets</ion-title>
+  </ion-toolbar>
+</ion-footer>

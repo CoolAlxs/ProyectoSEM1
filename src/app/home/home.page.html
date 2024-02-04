@@ -1,4 +1,35 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>HOME</ion-title>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
 <ion-content [fullscreen]="true">
 
-  <ion-button expand="full" (click)="irAIntro()">Ir a Intro</ion-button>
+  <swiper-container loop="true">
+    <swiper-slide *ngFor="let slide of event_list">
+      <ion-card>
+        <ion-card-header>
+          <ion-title>{{slide.name}}</ion-title>
+        </ion-card-header><img src="{{slide.image}}">
+        <ion-card-content>
+          <p><strong>Fecha: </strong>{{slide.event_date}}</p>
+          <p><strong>Lugar: </strong>{{slide.location}}</p>
+          <p><strong>Ciudad: </strong>{{slide.city}}</p>
+        </ion-card-content>
+      </ion-card>
+    </swiper-slide>
+  </swiper-container>
+  
+
+  <ion-button (click)="irAIntro()">Ir a Intro</ion-button>
+  
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <ion-title>© 2024 Venta de Tickets</ion-title>
+  </ion-toolbar>
+</ion-footer>
